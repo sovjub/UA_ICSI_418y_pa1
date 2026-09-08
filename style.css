@@ -1,0 +1,18 @@
+body {
+    background-color: lightgray;
+    font-size: 16;
+}
+
+form {
+    font-size: 16;
+    background-color: lightblue;
+    border: 3px solid blue;
+    padding: 20px;
+}
+
+div {
+    font-size: 16;
+    background-color: rgb(255, 255, 145);
+    border: 3px solid orange;
+    padding: 20px;
+}

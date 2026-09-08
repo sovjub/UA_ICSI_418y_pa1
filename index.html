@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <!-- VS code auto-filled some of these next 3 lines stuff when I make the html tag.-->
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Dickert, Benjamin - PA1 Task Form</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = Begin Header-->
+    <h1>Task Manager
+        <link rel="stylesheet" href="style.css">
+    </h1>
+</head>
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = Begin Input Form-->
+<form id="task-form">
+    <label>Task Name</label>
+    <input id="task-name" type="text" placeholder="Enter Here">
+
+    <label id="priority">Priority</label>
+    <select>
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+    </select>
+
+    <button>Add Task</button>
+</form>
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = Begin Stats-->
+<div id="stats">
+    Current task count, total tasks made in high, med, low Priority
+</div>
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = Begin task list-->
+<div id="task-list">
+    Tasks will appear here.
+</div>
+
+</html>
