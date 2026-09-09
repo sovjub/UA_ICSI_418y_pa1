@@ -3,10 +3,8 @@ const form = document.querySelector("#task-form");
 const taskInput = document.querySelector("#task-name");
 const prioritySelector = document.querySelector("#priority");
 const taskList = document.querySelector("#task-list");
-const completedList = document.querySelector("#completed-list");
 
 const tasks = [];
-const comletedTasks = [];
 
 let taskCounter = 0;
 
@@ -30,6 +28,9 @@ form.addEventListener("submit", function (event) {
 
     tasks.push(task);
 
+    taskInput.value = ""; // clear the box
+    taskInput.focus(); // refocus the cursor so we can fire off tasks in fast succession
+
     displayTasks();
 });
 
@@ -40,16 +41,15 @@ form.addEventListener("submit", function (event) {
 function displayTasks() {
 
     taskList.innerHTML = "";
-    completedList.innerHTML = "";
 
 
     for (const task of tasks) {
-        // what does complete and incomplete tasks have in common when rendered?
-        // Index, name, priority, also the delete button but we append that last.
+        // ===========================================make the new element and format the display text
         const paragraph = document.createElement("p");
-        paragraph.textContent = task.index + ") " + task.name + " - " + task.priority; // format the task entry
-
-
+        paragraph.textContent = task.index + ") " + task.name + " - " + task.priority;
+        if (task.completed === true) {
+            paragraph.classList.add("completedState");
+        }
         // ============================================================================add complete button
         const completeButton = document.createElement("button"); //
         completeButton.textContent = "Complete"; // Button label
@@ -58,7 +58,16 @@ function displayTasks() {
             console.log("Task number " + task.index + " marked as " + task.completed);
             displayTasks();
         });
+        if (task.completed === false) {
+            completeButton.textContent = "Complete";
+            completeButton.classList.add("pendingState");
+        }
+        else {
+            completeButton.textContent = "Undo";
+            completeButton.classList.add("completedState");
+        }
         paragraph.appendChild(completeButton); // attach it to the currently handled task
+
         //============================================================================add a delete button
         const deleteButton = document.createElement("button"); //
         deleteButton.textContent = "Delete"; // Button label
@@ -67,16 +76,16 @@ function displayTasks() {
             tasks.splice((tasks.indexOf(task)), 1);
             displayTasks();
         });
+        if (task.completed === false) {
+            deleteButton.classList.add("completedState");
+        }
+        else {
+            deleteButton.classList.add("pendingState");
+        }
         paragraph.appendChild(deleteButton);
 
-        // ========================================================================Decide where it belongs.
-        if (task.completed === false) { // add incomplete tasks to the correct list
-            taskList.appendChild(paragraph); // actually add the task to list
-        }
-        else { // this is a completed task
-            completedList.appendChild(paragraph); // actually add the task to list
-        }
-
+        //===================================================================actaully add it to the list
+        taskList.appendChild(paragraph);
 
 
     }

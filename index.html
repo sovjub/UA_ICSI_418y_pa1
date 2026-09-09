@@ -9,38 +9,28 @@
 
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = Begin Header-->
-    <h1>Task Manager
-        <link rel="stylesheet" href="style.css">
-    </h1>
+
+    <h1>Task Manager</h1>
 </head>
-<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = Begin Input Form-->
-<form id="task-form">
-    <label>Task Name</label>
-    <input id="task-name" type="text" placeholder="Enter Here">
 
-    <label>Priority</label>
-    <select id="priority">
-        <option>Low</option>
-        <option>Medium</option>
-        <option>High</option>
-    </select>
+<Body>
+    <form id="task-form">
+        <label>Task Name</label>
+        <input id="task-name" type="text" placeholder="Enter Here">
 
-    <button>Add Task</button>
-</form>
+        <label>Priority</label>
+        <select id="priority">
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+        </select>
 
-<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = Begin Stats
-<div id="stats">
-    Current task count, total tasks made in high, med, low Priority
-</div>
--->
+        <button>Add Task</button>
+    </form>
 
-<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = Begin task list-->
-<div id="task-list">
-    Tasks will appear here.
-</div>
-<div id="completed-list">
-    Completed or Deleted tasks will appear here.
-</div>
+    <div id="task-list">
+        Tasks will appear here.
+    </div>
+</Body>
 
 </html>
